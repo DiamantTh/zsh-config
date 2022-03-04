@@ -1,11 +1,11 @@
 # Common ENV variables
-export EDITOR='vim'
-export GIT_EDITOR='vim'
+export EDITOR='nano'
+export GIT_EDITOR='nano'
 export SHELL='/bin/zsh'
 
 # Fix Locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=de_DE.UTF-8
+export LANG=de_DE.UTF-8
 
 # History
 export HISTSIZE=500000
@@ -80,7 +80,9 @@ autoload -U promptinit && promptinit
 autoload -U compinit compdef && compinit
 
 # Prompt
-prompt pure
+PROMPT="%B%F{015}%n%f@%F{001}%M%f::%F{006}%F{002}%d%f::"
+RPROMPT="%B%F{012}%D{%d/%m/%Y}%f:%F{014}%*%f"
+
 
 # Reverse search
 bindkey -e
@@ -99,21 +101,9 @@ fi
 # alias
 alias ls='ls $LS_OPTIONS -hF'
 alias ll='ls $LS_OPTIONS -lAhF'
-alias cd..="cd .."
-alias ..="cd .."
-alias projects="cd ~/projects/"
-alias phps='bin/phpspec'
-alias behat='bin/behat'
-alias prod='app/console -e=prod'
-alias dev='app/console -e=dev'
-alias dig='dig +short +noshort'
 alias dm='docker-machine'
 alias dc='docker-compose'
-alias app='dc exec php-fpm bin/console'
-alias ec2-list-all='aws ec2 describe-instances --query '\''Reservations[].Instances[].[PrivateIpAddress,PrivateDnsName,InstanceId,Tags[?Key==`Name`].Value[]]'\'' --output text | sed '\''$!N;s/\n/ /'\'''
 alias dexec='docker-compose exec'
-alias sync-translations='cd src/AppBundle/Resources/translations && aws s3 cp --recursive --exclude "*" --include "*.xliff" --exclude "*/*" s3://automan-uploads-production/translations . && cd -'
-
 alias dockertimesync='docker-machine ssh docker "sudo date -u $(date -u +%m%d%H%M%Y)"'
 
 ### PATH
