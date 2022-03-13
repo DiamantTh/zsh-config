@@ -1,8 +1,11 @@
 My ZSH config
 =============
+Customized for me.
 
-This is my ZSH config. As I hate to reinvent wheels (OK, and I'm lazy), I took [William Durands](git@github.com:willdurand/zsh-config.git) 
-configuration and stripped that down to my own preferences. All credits to him! 
+  **Old Text**
+	
+	$ This is my ZSH config. As I hate to reinvent wheels (OK, and I'm lazy), I took [William Durands](git@github.com:willdurand/zsh-config.git) 
+	$ configuration and stripped that down to my own preferences. All credits to him! 
 
 Installation
 ------------
