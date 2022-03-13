@@ -98,20 +98,11 @@ else
     export LS_OPTIONS='-G'
 fi
 
-# alias
-alias ls='ls $LS_OPTIONS -hF'
-alias ll='ls $LS_OPTIONS -lAhF'
-alias dm='docker-machine'
-alias dc='docker-compose'
-alias dexec='docker-compose exec'
-alias dockertimesync='docker-machine ssh docker "sudo date -u $(date -u +%m%d%H%M%Y)"'
-alias wine32='WINEARCH=win32 WINEPREFIX=~/.wine32 wine'
-alias wine64='WINEARCH=win64 WINEPREFIX=~/.wine64 wine'
-alias winetricks32='WINEARCH=win32 WINEPREFIX=~/.wine32 winetricks'
-alias winetricks64='WINEARCH=win64 WINEPREFIX=~/.wine64 winetricks'
-alias winecfg32='WINEARCH=win32 WINEPREFIX=~/.wine32 winecfg'
-alias winecfg64='WINEARCH=win64 WINEPREFIX=~/.wine64 winecfg'
-
+if [ -f ~/.zsh/zshalias ]; then
+    source ~/.zsh/zshalias
+else
+    print "404: ~/.zsh/zshalias not found."
+fi
 
 
 ### PATH

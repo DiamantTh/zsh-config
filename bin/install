@@ -32,6 +32,8 @@ if [ -L ~/.zsh/_git ] ; then
     rm ~/.zsh/_git
 fi
 
+
+
 ln -s "$CURRENT/git/_hub" ~/.zsh/_hub
 
 if [ -L ~/.zsh/_hub ] ; then
@@ -41,10 +43,17 @@ fi
 ln -s "$CURRENT/git/_hub" ~/.zsh/_hub
 
 # ZSH
+
 if [ -L ~/.zshrc ] ; then
     rm ~/.zshrc
 fi
 
 ln -s "$CURRENT/zshrc" ~/.zshrc
+
+if [ -L ~/.zsh/zshalias ] ; then
+    rm ~/.zshalias
+fi
+
+ln -s "$CURRENT/zshalias" ~/.zsh/zshalias
 
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
