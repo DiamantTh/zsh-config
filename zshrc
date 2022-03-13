@@ -105,6 +105,14 @@ alias dm='docker-machine'
 alias dc='docker-compose'
 alias dexec='docker-compose exec'
 alias dockertimesync='docker-machine ssh docker "sudo date -u $(date -u +%m%d%H%M%Y)"'
+alias wine32='WINEARCH=win32 WINEPREFIX=~/.wine32 wine'
+alias wine64='WINEARCH=win64 WINEPREFIX=~/.wine64 wine'
+alias winetricks32='WINEARCH=win32 WINEPREFIX=~/.wine32 winetricks'
+alias winetricks64='WINEARCH=win64 WINEPREFIX=~/.wine64 winetricks'
+alias winecfg32='WINEARCH=win32 WINEPREFIX=~/.wine32 winecfg'
+alias winecfg64='WINEARCH=win64 WINEPREFIX=~/.wine64 winecfg'
+
+
 
 ### PATH
 export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
