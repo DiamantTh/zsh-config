@@ -10,7 +10,7 @@ if [ -L ~/.scripts ] ; then
     rm ~/.scripts
 fi
 
-ln -s "$CURRENT/scripts" ~/.scripts
+ln -sf "$CURRENT/scripts" ~/.scripts
 
 if [ ! -d ~/.zsh ] ; then
     mkdir ~/.zsh
@@ -20,13 +20,13 @@ if [ -L ~/.zsh/prompt_pure_setup ] ; then
     rm ~/.zsh/prompt_pure_setup
 fi
 
-ln -s "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
+ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
 
 if [ -L ~/.zsh/zsh-autosuggestions ] ; then
     rm ~/.zsh/zsh-autosuggestions
 fi
 
-ln -s "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
+ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
 
 if [ -L ~/.zsh/_git ] ; then
     rm ~/.zsh/_git
@@ -34,13 +34,13 @@ fi
 
 
 
-ln -s "$CURRENT/git/_hub" ~/.zsh/_hub
+ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 
 if [ -L ~/.zsh/_hub ] ; then
     rm ~/.zsh/_hub
 fi
 
-ln -s "$CURRENT/git/_hub" ~/.zsh/_hub
+ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 
 # ZSH
 
@@ -48,12 +48,12 @@ if [ -L ~/.zshrc ] ; then
     rm ~/.zshrc
 fi
 
-ln -s "$CURRENT/zshrc" ~/.zshrc
+ln -sf "$CURRENT/zshrc" ~/.zshrc
 
 if [ -L ~/.zsh/zshalias ] ; then
     rm ~/.zshalias
 fi
 
-ln -s "$CURRENT/zshalias" ~/.zsh/zshalias
+ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
