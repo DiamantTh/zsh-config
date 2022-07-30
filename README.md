@@ -10,5 +10,5 @@ Customized for me.
 Installation
 ------------
 
-    $ git clone git://github.com/diamantth/zsh-config.git --recursive
+    $ git clone git@github.com:DiamantTh/zsh-config.git --recursive
     $ cd zsh-config && bin/install
