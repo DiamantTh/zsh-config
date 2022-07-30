@@ -56,4 +56,7 @@ fi
 
 ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 
+
+ln -sf "$CURRENT/dir_colors" ~/.dir_colors
+
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
