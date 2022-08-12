@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+CURRENT="`pwd`"
+
+set -u
+set -e
+
+if [ ! -d ~/.zsh ] ; then
+    rm -rf ~/.zsh
+fi
+
+
+if [ ! -d ~/.zshrc ] ; then
+    rm ~/.zshrc
+fi
+
+if [ ! -d ~/.dir_colors ] ; then
+    mkdir ~/.dir_colors
+fi
