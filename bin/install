@@ -56,6 +56,9 @@ fi
 
 ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 
+if [ -L ~/.dir_colors ] ; then
+    rm ~/.dir_colors
+fi
 
 ln -sf "$CURRENT/dir_colors" ~/.dir_colors
 
