@@ -1,5 +1,11 @@
 My ZSH config
-=============
+
+ bin/_git from https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+ 
+ bin/_hub from  https://github.com/github/hub/blob/master/etc/hub.zsh_completion
+ 
+ dir_colors Scheme from https://github.com/arcticicestudio/nord-dircolors
+
 Customized for me.
 
   **Old Text**
