@@ -12,4 +12,6 @@ alias winetricks32='WINEARCH=win32 WINEPREFIX=~/.wine32 winetricks'
 alias winetricks64='WINEARCH=win64 WINEPREFIX=~/.wine64 winetricks'
 alias winecfg32='WINEARCH=win32 WINEPREFIX=~/.wine32 winecfg'
 alias winecfg64='WINEARCH=win64 WINEPREFIX=~/.wine64 winecfg'
+alias mono32='WINEARCH=win64 WINEPREFIX=~/.wine64 mono'
+alias mono64='WINEARCH=win64 WINEPREFIX=~/.wine64 mono'
 

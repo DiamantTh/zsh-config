@@ -5,6 +5,7 @@ export SHELL='/bin/zsh'
 
 # Fix Locale
 export LC_ALL=de_DE.UTF-8
+export LC_TIME=de_DE.UTF-8
 export LANG=de_DE.UTF-8
 
 # History
@@ -109,6 +110,6 @@ fi
 export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
 
 source ~/.zsh/zsh-autosuggestions
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH:/home/thomas/.local/bin"
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
