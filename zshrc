@@ -110,6 +110,9 @@ fi
 export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
 
 source ~/.zsh/zsh-autosuggestions
-export PATH="/usr/local/sbin:$PATH:/home/thomas/.local/bin"
+export PATH="/usr/local/sbin:$PATH:/home/thomas/.local/bin:/opt/wine-stable/bin:"
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
+
+export XDG_RUNTIME_DIR="/run/user/$UID"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
