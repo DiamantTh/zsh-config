@@ -110,7 +110,7 @@ fi
 export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
 
 source ~/.zsh/zsh-autosuggestions
-export PATH="/usr/local/sbin:$PATH:/home/thomas/.local/bin:/opt/wine-stable/bin:"
+export PATH="/usr/local/sbin:$PATH:$HOME/.local/bin:/opt/wine-stable/bin:"
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
 
