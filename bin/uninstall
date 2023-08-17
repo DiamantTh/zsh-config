@@ -14,6 +14,6 @@ if [ ! -d ~/.zshrc ] ; then
     rm ~/.zshrc
 fi
 
-if [ ! -d ~/.dir_colors ] ; then
-    mkdir ~/.dir_colors
+if [ ! -f ~/.dir_colors ] ; then
+    rm ~/.dir_colors
 fi
