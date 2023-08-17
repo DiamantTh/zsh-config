@@ -6,26 +6,9 @@ set -u
 set -e
 
 # scripts
-if [ -L ~/.scripts ] ; then
-    rm ~/.scripts
-fi
 
 ln -sf "$CURRENT/scripts" ~/.scripts
-
-if [ ! -d ~/.zsh ] ; then
-    mkdir ~/.zsh
-fi
-
-if [ -L ~/.zsh/prompt_pure_setup ] ; then
-    rm ~/.zsh/prompt_pure_setup
-fi
-
 ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
-
-if [ -L ~/.zsh/zsh-autosuggestions ] ; then
-    rm ~/.zsh/zsh-autosuggestions
-fi
-
 ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
 
 if [ -L ~/.zsh/_git ] ; then
@@ -43,23 +26,11 @@ fi
 ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 
 # ZSH
-
-if [ -L ~/.zshrc ] ; then
-    rm ~/.zshrc
-fi
-
 ln -sf "$CURRENT/zshrc" ~/.zshrc
-
-if [ -L ~/.zsh/zshalias ] ; then
-    rm ~/.zsh/zshalias
-fi
-
 ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 
-if [ -L ~/.dir_colors ] ; then
-    rm ~/.dir_colors
-fi
-
+#dir_colors
 ln -sf "$CURRENT/dir_colors" ~/.dir_colors
 
+#End
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
