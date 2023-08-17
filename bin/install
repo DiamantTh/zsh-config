@@ -11,17 +11,7 @@ ln -sf "$CURRENT/scripts" ~/.scripts
 ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
 ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
 
-if [ -L ~/.zsh/_git ] ; then
-    rm ~/.zsh/_git
-fi
-
-
-
 ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
-
-if [ -L ~/.zsh/_hub ] ; then
-    rm ~/.zsh/_hub
-fi
 
 ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 
