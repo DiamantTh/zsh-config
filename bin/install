@@ -5,41 +5,60 @@ CURRENT="`pwd`"
 set -u
 set -e
 
+# Define cleanup function
+cleanup() {
+  echo "Script exited unexpectedly. Cleaning up..."
+  rm -f ~/.scripts
+  rm -f ~/.zsh/prompt_pure_setup
+  rm -f ~/.zsh/zsh-autosuggestions
+  rm -f ~/.zsh/_hub
+  rm -f ~/.zshrc
+  rm -f ~/.zsh/zshalias
+  rm -f ~/.dir_colors
+}
+
+# Call cleanup function on script error or interrupt
+trap cleanup ERR INT SIGINT SIGTERM
+
 # scripts
-
+read -p "Are you sure you want to create symbolic links in ~/.scripts? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 ln -sf "$CURRENT/scripts" ~/.scripts
+fi
 
-#Check dir ~/.zsh exist or halt
-if [ ! -d ~/.zsh ] then
+# Check if ~/.zsh directory exists, if not, create it
+if [ ! -d ~/.zsh ] ; then
   mkdir ~/.zsh
 fi
 
-if [ ! -d ~/.zsh ] then
+# Now that we know ~/.zsh exists, we can create the symbolic links
+read -p "Are you sure you want to create Alsosymbolic links in ~/.zsh? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
   ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
-fi
-
-if [ ! -d ~/.zsh ] then
   ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
-fi
-
-if [ ! -d ~/.zsh ] then
-  ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
-fi
-
-if [ ! -d ~/.zsh ] then
   ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 fi
 
 # ZSH
-ln -sf "$CURRENT/zshrc" ~/.zshrc
-
-
-if [ ! -d ~/.zsh ] then
+read -p "Are you sure you want to create symbolic links for zsh configuration files? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  ln -sf "$CURRENT/zshrc" ~/.zshrc
   ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 fi
 
 #dir_colors
-ln -sf "$CURRENT/dir_colors" ~/.dir_colors
+read -p "Are you sure you want to create a symbolic link for dir_colors? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  ln -sf "$CURRENT/dir_colors" ~/.dir_colors
+fi
 
 #End
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
