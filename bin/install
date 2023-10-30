@@ -8,16 +8,35 @@ set -e
 # scripts
 
 ln -sf "$CURRENT/scripts" ~/.scripts
-ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
-ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
 
-ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
+#Check dir ~/.zsh exist or halt
+if [ ! -d ~/.zsh ] then
+  mkdir ~/.zsh
+fi
 
-ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
+if [ ! -d ~/.zsh ] then
+  ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
+fi
+
+if [ ! -d ~/.zsh ] then
+  ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
+fi
+
+if [ ! -d ~/.zsh ] then
+  ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
+fi
+
+if [ ! -d ~/.zsh ] then
+  ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
+fi
 
 # ZSH
 ln -sf "$CURRENT/zshrc" ~/.zshrc
-ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
+
+
+if [ ! -d ~/.zsh ] then
+  ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
+fi
 
 #dir_colors
 ln -sf "$CURRENT/dir_colors" ~/.dir_colors
