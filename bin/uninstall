@@ -5,15 +5,29 @@ CURRENT="`pwd`"
 set -u
 set -e
 
-if [ ! -d ~/.zsh ] ; then
-  rm -rf ~/.zsh
+if [ -d ~/.zsh ] ; then
+  read -p "Are you sure you want to remove ~/.zsh? [y/N] " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    rm -rf ~/.zsh
+  fi
 fi
 
-
-if [ ! -d ~/.zshrc ] ; then
-  rm ~/.zshrc
+if [ -f ~/.zshrc ] ; then
+  read -p "Are you sure you want to remove ~/.zshrc? [y/N] " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    rm ~/.zshrc
+  fi
 fi
 
-if [ ! -L ~/.dir_colors ] ; then
-  rm ~/.dir_colors
+if [ -L ~/.dir_colors ] ; then
+  read -p "Are you sure you want to remove ~/.dir_colors? [y/N] " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    rm ~/.dir_colors
+  fi
 fi
