@@ -1,4 +1,4 @@
-# Common ENV variables
+# Common ENV variables
 export EDITOR='nano'
 export GIT_EDITOR='nano'
 export SHELL='/bin/zsh'
