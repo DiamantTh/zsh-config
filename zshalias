@@ -15,4 +15,4 @@ alias psx='ps aux'
 alias weechat-curses='screen -S weechat -xR weechat-curses'
 alias weechat='screen -S weechat -xR weechat-curses'
 alias chat='screen -S weechat -xR weechat-curses'
-alias "pdnsutil"='ssh root@ns1-ssh pdnsutil'
+	
