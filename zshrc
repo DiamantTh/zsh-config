@@ -13,7 +13,7 @@ export HISTSIZE=500000
 export HISTFILE="$HOME/.history"
 export SAVEHIST=$HISTSIZE
 
-# Remove superfluous blanks from each command line being added to the history
+# Remove superfluous blanks from each command line being added to the history
 # list
 setopt histreduceblanks
 # Remove command lines from the history list when the first character on the
@@ -114,5 +114,14 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.local/bin:/usr/local/go
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
 
+#XDG/DBUS
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+
+#Docker rootless
+export DOCKER_HOST="unix:///run/docker.sock"
+
+
+# Added by ProtonUp-Qt on 31-10-2023 01:10:30
+if [ -d "/home/thomas/stl/prefix" ]; then export PATH="$PATH:/home/thomas/stl/prefix"; fi
