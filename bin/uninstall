@@ -5,29 +5,34 @@ CURRENT="`pwd`"
 set -u
 set -e
 
-if [ -d ~/.zsh ] ; then
-  read -p "Are you sure you want to remove ~/.zsh? [y/N] " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    rm -rf ~/.zsh
+# Function to validate safe deletion
+safe_delete() {
+  local target=$1
+  if [[ "$target" == "$HOME/"* ]]; then
+    read -p "Are you sure you want to remove $target? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      rm -rf "$target"
+      echo "Removed $target."
+    else
+      echo "Skipped $target."
+    fi
+  else
+    echo "Unsafe deletion path: $target"
   fi
+}
+
+# Remove ~/.zsh
+if [ -d ~/.zsh ]; then
+  safe_delete ~/.zsh
 fi
 
-if [ -f ~/.zshrc ] ; then
-  read -p "Are you sure you want to remove ~/.zshrc? [y/N] " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    rm ~/.zshrc
-  fi
+# Remove ~/.zshrc
+if [ -f ~/.zshrc ]; then
+  safe_delete ~/.zshrc
 fi
 
-if [ -L ~/.dir_colors ] ; then
-  read -p "Are you sure you want to remove ~/.dir_colors? [y/N] " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    rm ~/.dir_colors
-  fi
+# Remove ~/.dir_colors
+if [ -L ~/.dir_colors ]; then
+  safe_delete ~/.dir_colors
 fi

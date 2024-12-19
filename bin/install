@@ -5,9 +5,9 @@ CURRENT="`pwd`"
 set -u
 set -e
 
-# Define cleanup function
+# Function to clean up on errors
 cleanup() {
-  echo "Script exited unexpectedly. Cleaning up..."
+  echo "Installation interrupted. Cleaning up..."
   rm -f ~/.scripts
   rm -f ~/.zsh/prompt_pure_setup
   rm -f ~/.zsh/zsh-autosuggestions
@@ -16,49 +16,56 @@ cleanup() {
   rm -f ~/.zsh/zshalias
   rm -f ~/.dir_colors
 }
-
-# Call cleanup function on script error or interrupt
 trap cleanup ERR INT SIGINT SIGTERM
 
 # scripts
 read -p "Are you sure you want to create symbolic links in ~/.scripts? [y/N] " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-ln -sf "$CURRENT/scripts" ~/.scripts
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  ln -sf "$CURRENT/scripts" ~/.scripts
 fi
 
 # Check if ~/.zsh directory exists, if not, create it
-if [ ! -d ~/.zsh ] ; then
+if [ ! -d ~/.zsh ]; then
   mkdir ~/.zsh
 fi
 
-# Now that we know ~/.zsh exists, we can create the symbolic links
-read -p "Are you sure you want to create Alsosymbolic links in ~/.zsh? [y/N] " -n 1 -r
+# Create symbolic links in ~/.zsh
+read -p "Are you sure you want to create symbolic links in ~/.zsh? [y/N] " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
   ln -sf "$CURRENT/pure/pure.zsh" ~/.zsh/prompt_pure_setup
   ln -sf "$CURRENT/zsh-autosuggestions/zsh-autosuggestions.zsh" ~/.zsh/zsh-autosuggestions
   ln -sf "$CURRENT/git/_hub" ~/.zsh/_hub
 fi
 
-# ZSH
+# ZSH configuration files
 read -p "Are you sure you want to create symbolic links for zsh configuration files? [y/N] " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [ -e ~/.zshrc ]; then
+    echo "~/.zshrc exists. Backup created at ~/.zshrc.bak"
+    mv ~/.zshrc ~/.zshrc.bak
+  fi
   ln -sf "$CURRENT/zshrc" ~/.zshrc
+
+  if [ -e ~/.zsh/zshalias ]; then
+    echo "~/.zsh/zshalias exists. Backup created at ~/.zsh/zshalias.bak"
+    mv ~/.zsh/zshalias ~/.zsh/zshalias.bak
+  fi
   ln -sf "$CURRENT/zshalias" ~/.zsh/zshalias
 fi
 
-#dir_colors
+# dir_colors
 read -p "Are you sure you want to create a symbolic link for dir_colors? [y/N] " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  if [ -e ~/.dir_colors ]; then
+    echo "~/.dir_colors exists. Backup created at ~/.dir_colors.bak"
+    mv ~/.dir_colors ~/.dir_colors.bak
+  fi
   ln -sf "$CURRENT/dir_colors" ~/.dir_colors
 fi
 
-#End
+# End
 printf "\r\033[2K  [ \033[00;32mOK\033[0m ] zsh config installed\n"
