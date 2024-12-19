@@ -84,7 +84,6 @@ autoload -U compinit compdef && compinit
 PROMPT="%B%F{015}%n%f@%F{001}%M%f::%F{006}%F{002}%d%f::"
 RPROMPT="%B%F{012}%D{%d/%m/%Y}%f:%F{014}%*%f"
 
-
 # Reverse search
 bindkey -e
 
@@ -105,11 +104,17 @@ else
     print "404: ~/.zsh/zshalias not found."
 fi
 
-
 ### PATH
+<<<<<<< HEAD
 source ~/.zsh/zsh-autosuggestions
 
 export PATH="/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:/opt/wine-stable/bin:"
+=======
+export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
+
+
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.local/bin:/usr/local/go/bin:/opt/wine-stable/bin:"
+>>>>>>> f32dc7c (source ~/.zsh/zsh-autosuggestions removed/duplicate)
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
 
@@ -117,10 +122,6 @@ export CACHE_AND_LOG_DIR=/tmp/automanager
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
-
 #Docker rootless
 export DOCKER_HOST="unix:///run/docker.sock"
 
-
-# Added by ProtonUp-Qt on 31-10-2023 01:10:30
-if [ -d "/home/thomas/stl/prefix" ]; then export PATH="$PATH:/home/thomas/stl/prefix"; fi
