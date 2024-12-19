@@ -74,7 +74,10 @@ zstyle ':completion:*:descriptions' format '%U%F{yellow}%d%f%u'
 zstyle ':completion:*:*:git:*' script ~/.git-completion.sh
 
 # Functions Autoloading
-fpath=(~/.zsh $fpath)
+#fpath=(~/.zsh $fpath)
+if [ -d ~/.zsh ]; then
+    fpath=(~/.zsh $fpath)
+fi
 
 # Completion
 autoload -U promptinit && promptinit
@@ -91,8 +94,8 @@ bindkey -e
 source ~/.zsh/zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0162'
 
-if [ `uname` = 'Linux' ]; then
-    eval `dircolors ~/.dir_colors`
+if [ "$(uname)" = "Linux" ]; then
+    eval "$(dircolors ~/.dir_colors)"
     export LS_OPTIONS='--color=auto'
 else
     export LS_OPTIONS='-G'
@@ -105,16 +108,8 @@ else
 fi
 
 ### PATH
-<<<<<<< HEAD
-source ~/.zsh/zsh-autosuggestions
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/bin:$HOME/.local/bin:/usr/local/go/bin:/opt/wine-stable/bin:"
 
-export PATH="/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin:/opt/wine-stable/bin:"
-=======
-export PATH=/usr/local/bin:/usr/sbin:/sbin:/usr/bin:/bin
-
-
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.local/bin:/usr/local/go/bin:/opt/wine-stable/bin:"
->>>>>>> f32dc7c (source ~/.zsh/zsh-autosuggestions removed/duplicate)
 export AM_GRUMPHP_LOCAL=yay
 export CACHE_AND_LOG_DIR=/tmp/automanager
 
